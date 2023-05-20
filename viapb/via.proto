@@ -1,0 +1,34 @@
+syntax = "proto3";
+package orderpb;
+
+option go_package="./;viapb";
+
+message Incident {
+    string id = 1;
+    string lat = 2;
+    string long = 3;
+    string time = 4;
+
+    enum DAY_OF_THE_WEEK{
+        SUNDAY = 0;
+        MONDAY = 1;
+        TUESDAY = 2;
+        WEDNESDAY = 3;
+        THURSDAY = 4;
+        FRIDAY = 5;
+        SATURDAY = 6;
+     }
+  
+     DAY_OF_THE_WEEK day = 5;
+}
+
+message GetIncidentRequest{
+}
+
+message GetIncidentResponse{
+    Incident incident = 1;
+}
+
+service Via{
+    rpc GetIncident(GetIncidentRequest) returns (GetIncidentResponse) {};
+}
