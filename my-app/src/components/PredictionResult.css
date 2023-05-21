@@ -1,0 +1,36 @@
+.high {
+    color: #ff7f82;
+}
+.moderate {
+    color: #e4cb58; /* orange */
+}
+.low {
+    color: #8fc866;
+}
+.very-low {
+    color: #19bc8b;
+}
+.prediction-result-container {
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    border: 4px solid white;
+    border-radius: 8px;
+    background-color: rgb(37, 37, 46);
+}
+
+
+.prediction-result-container.high-container {
+    border: 4px solid #ff7f82;
+}
+.prediction-result-container.moderate-container {
+    border: 4px solid #e4cb58;
+}
+.prediction-result-container.low-container {
+    border: 4px solid #8fc866;
+}
+.prediction-result-container.very-low-container {
+    border: 4px solid #19bc8b;
+}
