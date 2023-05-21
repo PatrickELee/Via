@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "32314:32314"
+    networks:
+      - backend
+  python-grpc-server:
+    build: ./python
+    networks:
+      - backend
+
+networks:
+  backend:
