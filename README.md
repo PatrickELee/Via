@@ -100,4 +100,10 @@ Classification Report:
 - Lack of data was our greatest limitation, as we only had data from a little over two full months. Training the model on data spanning multiple years would likely significantly increase performance.
 - Further research would consist of fitting and evaluating different classification models, as well as obtaining a more robust data set. In addition, we could expand the model to classify more types of crime, likelihood of a crime happening, and even recommended paths to take from an origin to a destination.
 
+# Front-end Portion
 
+## Tools used
+
+## Methodology
+
+## How it works (rename this section)
