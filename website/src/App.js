@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import PredictionResult from './components/PredictionResult.js';
+import PredictionForm from './components/PredictionForm.js';
 
 function App() {
   return (
     <div>
-      <PredictionResult />
+      <PredictionForm />
     </div>
   );
 }

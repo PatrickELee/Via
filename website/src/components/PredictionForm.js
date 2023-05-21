@@ -7,17 +7,20 @@ function PredictionForm() {
   const [time, setTime] = useState("");
   const [risk, setRisk] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    let randnum = Math.random() * 4;
-    if (randnum < 1)
-      setRisk("Very low");
-    else if (randnum < 2)
-      setRisk("Low");
-    else if (randnum < 3)
-      setRisk("Medium");
-    else
-      setRisk("High");
+
+    const formData = '{"location" : "Test Location", "time" : "1280"}';
+
+		// formData.append("word", "fsdofjsj");
+		const requestOptions = {
+			method: 'POST',
+			body: formData
+		};
+		setRisk('Test');
+		const res = await fetch('http://localhost:32314/api/dangerprobability', requestOptions)
+		const data = await res.json();
+    console.log(data);
   }
 
   return (
