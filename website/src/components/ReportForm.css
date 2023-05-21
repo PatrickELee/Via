@@ -38,13 +38,13 @@
     width: 80%;
     padding: 5px;
     outline: none;
-    border: 3px solid rgb(37, 37, 46);
+    border: 3px solid white;
+    border-radius: 3px;
     -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 .report-form-label input[type=text]:focus {
     border: 3px solid #ef6eae;
-    border-radius: 3px;
 }
 
 .report-form {
@@ -55,4 +55,10 @@
     background-color: rgb(37, 37, 46);
     border-radius: 8px;
     border: 4px solid #ef6eae;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.report-form:hover {
+    background-color: rgb(47, 47, 56);
 }

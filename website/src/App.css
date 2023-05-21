@@ -1,7 +1,8 @@
-.title {
+/* .title {
   text-align: center;
   margin-top: 50px;
-}
+  font-size: 40px;
+} */
 
 .form-container {
   margin: auto;
@@ -20,4 +21,30 @@
   outline: none;
   border: 2px solid white;
   border-radius: 2px;
+}
+
+.title {
+  margin-top: 50px;
+  text-align: center;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 3em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  background-clip: text;
+}
+
+@keyframes animate {
+  0% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: 300%;
+  }
 }

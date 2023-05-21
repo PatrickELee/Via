@@ -13,7 +13,7 @@ function App() {
   return (
     <div>
       <h1 className="title">Via</h1>
-      
+      <div className="animated-line"></div>
       <div className="form-container">
       <select className="select-form" onChange={handleChange}>
         <option value="predict">Predict</option>
