@@ -4,13 +4,15 @@ import "./PredictionForm.css";
 
 function PredictionForm() {
   const [place, setPlace] = useState("");
+  const [submittedPlace, setSubmittedPlace] = useState("");
   const [time, setTime] = useState("");
+  const [submittedTime, setSubmittedTime] = useState("");
   const [risk, setRisk] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const formData = '{"location" : "Test Location", "time" : "1280"}';
+    const formData = `{"location" : "${place}", "time" : "${time}"}`;
 
 		// formData.append("word", "fsdofjsj");
 		const requestOptions = {
@@ -21,15 +23,16 @@ function PredictionForm() {
 		const res = await fetch('http://localhost:32314/api/dangerprobability', requestOptions)
 		const data = await res.json();
     console.log(data);
+    setSubmittedTime(time);
+    setSubmittedPlace(place);
   }
 
   return (
     <div>
-    <div className="prediction-form-container">
-      <h2></h2>
+    <div>
       <form onSubmit={handleSubmit} className="prediction-form">
         <div>
-        <label className="form-input">
+        <label className="predict-form-label">
           Location
           <br/>
           <input
@@ -40,8 +43,8 @@ function PredictionForm() {
         </label>
         </div>
         <div>
-        <label className="form-input">
-          Time
+        <label className="predict-form-label">
+          Time (HH:MM)
           <br/>
           <input 
             type="text" 
@@ -50,11 +53,11 @@ function PredictionForm() {
           />
         </label>
         </div>
-        <input type="submit" className="submit-button"/>
+        <input type="submit" className="submit-predict-button"/>
       </form>
       {/* <p>Place: {place}<br />Time: {time}</p> */}
     </div>
-    <PredictionResult risk={risk}/>
+    {risk != "" && <PredictionResult risk={risk} time={submittedTime} place={submittedPlace}/>}
     </div>
   )
 }

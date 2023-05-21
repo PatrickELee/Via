@@ -28,7 +28,7 @@ function PredictionResult(props) {
   return (
     <div className={"prediction-result-container" + name}>
       <h2>Dangerous Crime Prediction</h2>
-      <h3><span><RiskLevel text={props.risk}/></span> risk of dangerous crime occurring at 00:00 at 400 Howard Way</h3>
+      <h3><span><RiskLevel text={props.risk}/></span> risk of dangerous crime occurring at {props.time} at {props.place}</h3>
     </div>
   );
 }
