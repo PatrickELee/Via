@@ -4,15 +4,15 @@ import "./PredictionForm.css";
 
 function PredictionForm() {
   const [place, setPlace] = useState("");
-  const [formPlace, setFormPlaace] = useState("");
+  const [submittedPlace, setSubmittedPlace] = useState("");
   const [time, setTime] = useState("");
-  const [formTime, setFormTime] = useState("");
+  const [submittedTime, setSubmittedTime] = useState("");
   const [risk, setRisk] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setFormTime(time);
-    setFormPlaace(place);
+    setSubmittedTime(time);
+    setSubmittedPlace(place);
     let randnum = Math.random() * 4;
     if (randnum < 1)
       setRisk("Very low");
@@ -42,7 +42,7 @@ function PredictionForm() {
         </div>
         <div>
         <label className="form-label">
-          Time
+          Time (HH:MM)
           <br/>
           <input 
             type="text" 
@@ -55,7 +55,7 @@ function PredictionForm() {
       </form>
       {/* <p>Place: {place}<br />Time: {time}</p> */}
     </div>
-    {risk != "" && <PredictionResult risk={risk} time={formTime} place={formPlace}/>}
+    {risk != "" && <PredictionResult risk={risk} time={submittedTime} place={submittedPlace}/>}
     </div>
   )
 }
