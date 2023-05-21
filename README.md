@@ -17,7 +17,7 @@ Data Source: https://police.ucdavis.edu/dashboard/crime-logs
 
 Data Table:
 
-![Data Table](project_images/raw_data_table.png)
+![Data Table](assets/raw_data_table.png)
 
 
 # Methods
@@ -58,7 +58,7 @@ Data Table:
 ### Data Scatter Plot:
 - Our scatter plot after scaling data:
 
-![Data Table](project_images/data_scatter_plot.png)
+![Data Table](assets/data_scatter_plot.png)
 
 
 ## Training Models
@@ -85,13 +85,13 @@ knn.fit(X_train, y_train)
 
 Classifcation Report:
 
-![Classification Report Model 1](project_images/log_classification_report.png)
+![Classification Report Model 1](assets/log_classification_report.png)
 
 ### Model 2
 
 Classification Report:
 
-![Classification Report Model 2](project_images/knn_classification_report.png)
+![Classification Report Model 2](assets/knn_classification_report.png)
 
 
 ## Conclusion
