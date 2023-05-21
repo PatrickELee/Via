@@ -1,12 +1,12 @@
 # Via
 
-# Machine Learning/Training Portion
-
-## Introduction
+# Introduction
 
 In recent times, concerns about personal safety have become prevalent among individuals on campus. While it is reassuring to know that the crime rate in Davis is significantly lower than the national average, with violent crime incidents per 1000 residents being nearly four times lower than the state average in California, there is still a lingering question: Is it truly safe to walk alone, particularly given recent events?
 
 This project aims to answer this question by predicting the likelihood of a dangerous crime based on the geographic location (latitude and longitude) and time. Such a model could help students and residents alike, warning them of when it may be risky to walk alone.
+
+# Machine Learning/Training Portion
 
 NOTE: In our data, we described dangerous crimes as anything that may threaten the safety of an individual. These include crimes like: theft, collisions, possession of a weapon, etc.
 
