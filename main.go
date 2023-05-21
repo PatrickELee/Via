@@ -14,60 +14,49 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-type server struct {
+type gRPCServer struct {
 	viapb.UnimplementedViaServer
 }
 
-// var (
-// 	offer_client   client.OfferClient
-// 	catalog_client client.CatalogClient
-// )
-
-func (*server) GetIncident(ctx context.Context, req *viapb.GetIncidentRequest) (*viapb.GetIncidentResponse, error) {
-	log.Println("Order Service - Called CreateOrder")
+func (*gRPCServer) GetIncident(ctx context.Context, req *viapb.GetIncidentRequest) (*viapb.GetIncidentResponse, error) {
+	log.Println("GetIncident Request")
 
 	return &viapb.GetIncidentResponse{}, nil
 }
 
-func error_response(err error) error {
-	log.Println("Order Service - ERROR:", err.Error())
+func logError(err error) error {
+	log.Println("Error with gRPC service:", err.Error())
 	return status.Error(codes.Internal, err.Error())
 }
 
-// func indexHandler(w http.ResponseWriter, r *http.Request) {
-// 	fmt.Printf("Rendering home\n")
-// 	http.ServeFile(w, r)
-// }
-
 func main() {
-	log.Println("Running Order Service")
+	log.Println("Running Via web server")
 
-	lis, err := net.Listen("tcp", "0.0.0.0:55052")
+	listener, err := net.Listen("tcp", "0.0.0.0:80")
 	if err != nil {
-		log.Println("Order Service - ERROR:", err.Error())
+		log.Println("Error with hosting server:", err.Error())
 	}
 
-	m := cmux.New(lis)
+	m := cmux.New(listener)
 
-	// Match connections in order:
-	// First grpc, then HTTP, and otherwise Go RPC/TCP.
-	grpcL := m.Match(cmux.HTTP2HeaderField("content-type", "application/grpc"))
-	httpL := m.Match(cmux.HTTP1Fast())
+	grpcListener := m.Match(cmux.HTTP2HeaderField("content-type", "application/grpc"))
+	httpListener := m.Match(cmux.HTTP1Fast())
 
-	grpcS := grpc.NewServer()
-	viapb.RegisterViaServer(grpcS, &server{})
+	grpcServer := grpc.NewServer()
+	viapb.RegisterViaServer(grpcServer, &gRPCServer{})
 
 	serveMux := http.NewServeMux()
-	fileServer := http.FileServer(http.Dir("./static/"))
-	serveMux.Handle("/", http.StripPrefix("/static", fileServer))
-	httpS := &http.Server{
+	fileServer := http.FileServer(http.Dir("website/build/"))
+
+	serveMux.Handle("/", http.StripPrefix("/", fileServer))
+	httpServer := &http.Server{
 		Handler: serveMux,
 	}
 
-	log.Printf("Server started at %v", lis.Addr().String())
+	log.Printf("Server started at %v", listener.Addr().String())
 
-	go grpcS.Serve(grpcL)
-	go httpS.Serve(httpL)
+	go grpcServer.Serve(grpcListener)
+	go httpServer.Serve(httpListener)
 
 	m.Serve()
 }
