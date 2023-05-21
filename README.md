@@ -2,9 +2,45 @@
 
 # Introduction
 
-In recent times, concerns about personal safety have become prevalent among individuals on campus. While it is reassuring to know that the crime rate in Davis is significantly lower than the national average, with violent crime incidents per 1000 residents being nearly four times lower than the state average in California, there is still a lingering question: Is it truly safe to walk alone, particularly given recent events?
+In recent times, concerns about personal safety have become prevalent among individuals on campus. While it is reassuring to know that the crime rate in Davis is significantly lower than the national average, with violent crime incidents per 1000 residents being nearly four times lower than the state average in California, there is still a lingering question: Is it truly safe to walk alone, particularly given recent events? Typically after the incident of slabing recently. We do not want another talented student like Narim Najm or any innocent civilians being harm.
 
 This project aims to answer this question by predicting the likelihood of a dangerous crime based on the geographic location (latitude and longitude) and time. Such a model could help students and residents alike, warning them of when it may be risky to walk alone.
+
+# Usage and User Interface
+
+The application have two different modes to the users on the web app. The predict mode will prompt user to enter an address they are at Davis and time. The app will return rather the location they input are in high risk or low risk. There is also another option call "report", which location dropbox on the left top corner of the left corner prompt. That entry is for user to report suspicous activity in the neighorhood.
+
+The user need to set up the environment and launch the project in your location terminal in following commands. For installing necessary application for the environment for this application. There following tool or application require: python, golang and nodeJs&npm.
+
+Golang installation:
+https://go.dev/doc/install
+
+Python:
+https://www.python.org/downloads/
+
+Nodejs & npm
+https://nodejs.org/en/download
+
+
+Since the partition of this project in based on React
+'''
+npm install -g npm@8.1.0
+npm run build
+'''
+We need to set up a server for this application, but user will only need to run main.go in following command.
+'''
+go build main.go
+go run main.go
+'''
+Later on your will need to obtain the api key from this website. This api is for loading user input into our machine learning model.
+'''
+https://developers.google.com/maps/documentation/geocoding/get-api-key
+'''
+
+Open any of your web brower and type follow url in your machine
+'''
+localhost:32314:32214
+'''
 
 # Machine Learning/Training Portion
 
