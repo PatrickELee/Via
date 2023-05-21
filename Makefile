@@ -14,7 +14,8 @@ python-proto:
 		./api/proto/via.proto
 
 docker-build:
-	docker build -t via .
+	docker build -t app .
+	docker build -t python-grpc-server ./python
 
 docker-run:
 	docker run --publish 32314:32314 via

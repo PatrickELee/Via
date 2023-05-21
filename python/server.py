@@ -7,12 +7,13 @@ import model_wrapper as ml
 
 import googlemaps
 import os
+import path
 from dotenv import load_dotenv
 
 class ViaServer(via_pb2_grpc.ViaServicer):
   def __init__(self):
-    load_dotenv()
-    gmaps_api_key = os.getenv('GMP_API_KEY')
+    gmaps_api_key = os.environ['GMP_API_KEY']
+    print(gmaps_api_key)
     self.client = googlemaps.Client(key=gmaps_api_key)  
   
   def GetDangerProbability(self, request, context):
