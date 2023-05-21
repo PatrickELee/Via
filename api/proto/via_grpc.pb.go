@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.3.0
 // - protoc             v4.23.1
-// source: viapb/via.proto
+// source: api/proto/via.proto
 
 package viapb
 
@@ -142,5 +142,5 @@ var Via_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "viapb/via.proto",
+	Metadata: "api/proto/via.proto",
 }

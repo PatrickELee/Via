@@ -23,9 +23,8 @@ message Incident {
 }
 
 message GetDangerProbabilityRequest{
-    string lat = 1;
-    string long = 2;
-    string time = 3;
+    string location = 1;
+    string time = 2;
 }
 
 message GetDangerProbabilityResponse{

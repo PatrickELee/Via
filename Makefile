@@ -2,16 +2,16 @@ all: protoc python-proto
 
 protoc:
 	protoc \
-		--go_out=./viapb \
-		--go-grpc_out=./viapb \
-		./viapb/via.proto
+		--go_out=./api/proto \
+		--go-grpc_out=./api/proto \
+		./api/proto/via.proto
 
 python-proto:
 	python -m grpc_tools.protoc \
-		--proto_path=./viapb \
+		--proto_path=./api/proto \
 		--python_out=./python \
 		--grpc_python_out=./python \
-		./viapb/via.proto
+		./api/proto/via.proto
 
 docker-build:
 	docker build -t via .
@@ -19,7 +19,13 @@ docker-build:
 docker-run:
 	docker run --publish 32314:32314 via
 
-client-run:
+go-server-run:
+	go run ./cmd/via.go
+
+py-server-run:
+	python ./python/server.py
+
+py-client-run:
 	python ./python/client.py
 
 clean:

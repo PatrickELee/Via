@@ -19,10 +19,9 @@ function PredictionForm() {
 			method: 'POST',
 			body: formData
 		};
-		setRisk('Test');
 		const res = await fetch('http://localhost:32314/api/dangerprobability', requestOptions)
 		const data = await res.json();
-    console.log(data);
+    setRisk(data['danger']);
     setSubmittedTime(time);
     setSubmittedPlace(place);
   }
