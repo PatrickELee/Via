@@ -45,12 +45,13 @@ Data Table:
     ```
 4. Partition into training and test data. We decided to use a train/test split of 80/20.
     ```
-    # We originally also used the day of week (i.e. Monday, Tuesday, etc.) but found it to lower the accuracy. With more data in the future, we could possibly implement it in.
+    # We originally also used the day of week (i.e. Monday, Tuesday, etc.)
+    # but found it to lower the accuracy. With more data in the future, we could possibly implement it in.
     df_ndow = df.drop("Day of Week", axis='columns')
     X_train, X_test, y_train, y_test = train_test_split(df_ndow.drop(['Dangerous'], axis=1), df_ndow.Dangerous, test_size=0.2, random_state=21)
 
     ```
-5. 
+
 
 ## Data Exploration
 
@@ -58,6 +59,7 @@ Data Table:
 - Our scatter plot after scaling data:
 
 ![Data Table](project_images/data_scatter_plot.png)
+
 
 ## Training Models
 
