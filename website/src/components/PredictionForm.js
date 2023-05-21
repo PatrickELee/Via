@@ -9,19 +9,21 @@ function PredictionForm() {
   const [submittedTime, setSubmittedTime] = useState("");
   const [risk, setRisk] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const formData = `{"location" : "${place}", "time" : "${time}"}`;
+
+		// formData.append("word", "fsdofjsj");
+		const requestOptions = {
+			method: 'POST',
+			body: formData
+		};
+		const res = await fetch('http://localhost:32314/api/dangerprobability', requestOptions)
+		const data = await res.json();
+    setRisk(data['danger']);
     setSubmittedTime(time);
     setSubmittedPlace(place);
-    let randnum = Math.random() * 4;
-    if (randnum < 1)
-      setRisk("Very low");
-    else if (randnum < 2)
-      setRisk("Low");
-    else if (randnum < 3)
-      setRisk("Moderate");
-    else
-      setRisk("High");
   }
 
   return (

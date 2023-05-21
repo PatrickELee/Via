@@ -1,5 +1,5 @@
 syntax = "proto3";
-package orderpb;
+package viapb;
 
 option go_package="./;viapb";
 
@@ -22,6 +22,15 @@ message Incident {
      DAY_OF_THE_WEEK day = 5;
 }
 
+message GetDangerProbabilityRequest{
+    string location = 1;
+    string time = 2;
+}
+
+message GetDangerProbabilityResponse{
+    string danger = 1;
+}
+
 message GetIncidentRequest{
 }
 
@@ -30,5 +39,6 @@ message GetIncidentResponse{
 }
 
 service Via{
+    rpc GetDangerProbability(GetDangerProbabilityRequest) returns (GetDangerProbabilityResponse) {};
     rpc GetIncident(GetIncidentRequest) returns (GetIncidentResponse) {};
 }
