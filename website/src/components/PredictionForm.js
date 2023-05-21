@@ -26,11 +26,10 @@ function PredictionForm() {
 
   return (
     <div>
-    <div className="prediction-form-container">
-      <h2></h2>
+    <div>
       <form onSubmit={handleSubmit} className="prediction-form">
         <div>
-        <label className="form-label">
+        <label className="predict-form-label">
           Location
           <br/>
           <input
@@ -41,7 +40,7 @@ function PredictionForm() {
         </label>
         </div>
         <div>
-        <label className="form-label">
+        <label className="predict-form-label">
           Time (HH:MM)
           <br/>
           <input 
@@ -51,7 +50,7 @@ function PredictionForm() {
           />
         </label>
         </div>
-        <input type="submit" className="submit-button"/>
+        <input type="submit" className="submit-predict-button"/>
       </form>
       {/* <p>Place: {place}<br />Time: {time}</p> */}
     </div>
